@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "joi": "^17.6.0",
+    "lodash.pick": "^4.4.0",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1",
+    "ping": "^0.4.2"
+  },
+  "name": "ping",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

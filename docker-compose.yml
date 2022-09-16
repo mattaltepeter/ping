@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: '${MYSQL_DB}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+    ports:
+      - '${MYSQL_PORT:-3306}:3306'
+    expose:
+      - '${MYSQL_PORT:-3306}'
+    volumes:
+      - '${MYSQL_VOLUME:-~/Documents/mysql/pingdb}:/var/lib/mysql'
+      - ./init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+  app:
+    restart: always
+    depends_on:
+      - mysqldb
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
