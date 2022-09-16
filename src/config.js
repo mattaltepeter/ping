@@ -19,7 +19,7 @@ const envVarsSchema = joi
       then: joi.string().required(),
       otherwise: joi.string().optional(),
     }),
-    PING_HOSTS: joi.string().optional().default('["google.com]"'),
+    PING_HOSTS: joi.string().optional().default('["google.com"]'),
     PING_MIN_REPLY: joi.number().positive().greater(0).default(10),
     PING_FREQUENCY: joi.number().positive().greater(0).default(30),
   })
